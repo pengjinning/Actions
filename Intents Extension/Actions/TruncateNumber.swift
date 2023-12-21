@@ -4,12 +4,12 @@ struct TruncateNumber: AppIntent {
 	static let title: LocalizedStringResource = "Truncate Number"
 
 	static let description = IntentDescription(
-"""
-Removes the fractional part of the given number.
+		"""
+		Removes the fractional part of the given number.
 
-Example: 3.4 => 3
-Example: 3.457 => 3.45
-""",
+		Example: 3.4 => 3
+		Example: 3.457 => 3.45
+		""",
 		categoryName: "Number",
 		searchKeywords: [
 			"decimal",
@@ -18,7 +18,8 @@ Example: 3.457 => 3.45
 			"strip",
 			"whole",
 			"integer"
-		]
+		],
+		resultValueName: "Truncated Number"
 	)
 
 	@Parameter(title: "Number")

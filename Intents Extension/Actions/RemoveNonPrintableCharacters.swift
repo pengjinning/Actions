@@ -1,17 +1,16 @@
 import AppIntents
 
-struct RemoveNonPrintableCharacters: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "RemoveNonPrintableCharactersIntent"
-
+struct RemoveNonPrintableCharactersIntent: AppIntent {
 	static let title: LocalizedStringResource = "Remove Non-Printable Characters"
 
 	static let description = IntentDescription(
-"""
-Removes non-printable (invisible) Unicode characters from the input text, excluding normal whitespace characters.
+		"""
+		Removes non-printable (invisible) Unicode characters from the input text, excluding normal whitespace characters.
 
-This can be useful to clean up input text which might contain things like left-to-right embedding, control characters, etc.
-""",
-		categoryName: "Text"
+		This can be useful to clean up input text which might contain things like left-to-right embedding, control characters, etc.
+		""",
+		categoryName: "Text",
+		resultValueName: "Text without Non-Printable Characters"
 	)
 
 	@Parameter(title: "Text")

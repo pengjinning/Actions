@@ -4,18 +4,17 @@ import AppIntents
 import Contacts
 #endif
 
-struct GetUserDetails: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "GetUserDetailsIntent"
-
+struct GetUserDetailsIntent: AppIntent {
 	static let title: LocalizedStringResource = "Get User Details"
 
 	static let description = IntentDescription(
-"""
-Returns details about the current user.
+		"""
+		Returns details about the current user.
 
-For example, username, name, language, idle time, etc.
-""",
-		categoryName: "Device"
+		For example, username, name, language, idle time, etc.
+		""",
+		categoryName: "Device",
+		resultValueName: "User Details"
 	)
 
 	@Parameter(title: "Type", default: .name)
@@ -25,7 +24,7 @@ For example, username, name, language, idle time, etc.
 		Summary("Get the current user's \(\.$type)")
 	}
 
-	func perform() async throws -> some IntentResult & ReturnsValue<String> {
+	func perform() async throws -> some IntentResult & ReturnsValue<String?> {
 		#if os(macOS)
 		let name = User.name
 		let nameString = User.nameString
@@ -61,7 +60,7 @@ For example, username, name, language, idle time, etc.
 			#endif
 		}
 
-		return .result(value: result ?? "")
+		return .result(value: result)
 	}
 }
 

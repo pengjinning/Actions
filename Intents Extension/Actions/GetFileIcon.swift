@@ -2,14 +2,13 @@ import AppIntents
 import SwiftUI
 
 @available(iOS, unavailable)
-struct GetFileIcon: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "GetFileIconIntent"
-
+struct GetFileIconIntent: AppIntent {
 	static let title: LocalizedStringResource = "Get File Icon (macOS-only)"
 
 	static let description = IntentDescription(
 		"Returns the icon for the input files or directories.",
-		categoryName: "File"
+		categoryName: "File",
+		resultValueName: "File Icon"
 	)
 
 	@Parameter(title: "Files", supportedTypeIdentifiers: ["public.item"])

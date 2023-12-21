@@ -1,8 +1,6 @@
 import AppIntents
 
-struct IsDarkMode: AppIntent, CustomIntentMigratedAppIntent {
-    static let intentClassName = "IsDarkModeIntent"
-
+struct IsDarkModeIntent: AppIntent {
     static let title: LocalizedStringResource = "Is Dark Mode On"
 
 	static let description = IntentDescription(
@@ -10,7 +8,11 @@ struct IsDarkMode: AppIntent, CustomIntentMigratedAppIntent {
 		categoryName: "Device"
 	)
 
-    func perform() async throws -> some IntentResult & ReturnsValue<Bool> {
+	@MainActor // Tries to work around stale value.
+	func perform() async throws -> some IntentResult & ReturnsValue<Bool> {
+		// Tries to work around stale value.
+		try? await Task.sleep(for: .seconds(0.1))
+
 		defer {
 			Task {
 				try? await Task.sleep(for: .seconds(0.1))

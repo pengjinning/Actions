@@ -1,13 +1,12 @@
 import AppIntents
 
-struct RemoveEmptyLines: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "RemoveEmptyLinesIntent"
-
+struct RemoveEmptyLinesIntent: AppIntent {
 	static let title: LocalizedStringResource = "Remove Empty Lines"
 
 	static let description = IntentDescription(
 		"Removes empty and whitespace-only lines from the input text.",
-		categoryName: "Text"
+		categoryName: "Text",
+		resultValueName: "Text without Empty and Whitespace-only Lines"
 	)
 
 	@Parameter(title: "Text")

@@ -1,13 +1,12 @@
 import AppIntents
 
-struct GetRandomFloatingPointNumber: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "RandomFloatingPointNumberIntent"
-
+struct RandomFloatingPointNumberIntent: AppIntent {
 	static let title: LocalizedStringResource = "Get Random Floating-Point Number"
 
 	static let description = IntentDescription(
 		"Returns a random floating-point number between the given minimum and maximum value.",
-		categoryName: "Random"
+		categoryName: "Random",
+		resultValueName: "Random Floating-Point Number"
 	)
 
 	@Parameter(title: "Minimum", controlStyle: .field)
@@ -20,6 +19,7 @@ struct GetRandomFloatingPointNumber: AppIntent, CustomIntentMigratedAppIntent {
 		title: "Seed",
 		description: "When specified, the returned number will always be the same if the seed is the same.",
 		inputOptions: String.IntentInputOptions(
+			keyboardType: .default,
 			capitalizationType: .none,
 			autocorrect: false,
 			smartQuotes: false,

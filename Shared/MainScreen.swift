@@ -2,7 +2,9 @@ import SwiftUI
 
 struct MainScreen: View {
 	@Environment(\.scenePhase) private var scenePhase
+	@Environment(\.requestReview) private var requestReview
 	@EnvironmentObject private var appState: AppState
+	@AppStorage("hasRequestedReview") private var hasRequestedReview = false
 	@State private var error: Error?
 	@State private var isSettingsPresented = false
 
@@ -38,6 +40,19 @@ struct MainScreen: View {
 							.ignoresSafeArea()
 					}
 				}
+				.overlay {
+					if let message = appState.fullscreenMessage {
+						// We use this instead of `.fullScreenCover` as there's no way to turn off its animation.
+						Color.legacyBackground
+							.ignoresSafeArea()
+							.overlay {
+								VStack(spacing: 32) {
+									ProgressView()
+									Text(message)
+								}
+							}
+					}
+				}
 				#if canImport(UIKit)
 				.documentScanner(isPresented: $appState.isDocumentScannerPresented) {
 					switch $0 {
@@ -49,7 +64,7 @@ struct MainScreen: View {
 					}
 				}
 				.onChange(of: scenePhase) {
-					if $0 != .active {
+					if scenePhase != .active {
 						appState.isFullscreenOverlayPresented = false
 					}
 				}
@@ -62,13 +77,21 @@ struct MainScreen: View {
 				}
 				.toolbar {
 					#if canImport(UIKit)
-					ToolbarItemGroup(placement: .topBarTrailing) {
-						Button("Settings", systemImage: "gear") {
-							isSettingsPresented = true
-						}
+					if
+						!appState.isFullscreenOverlayPresented,
+						appState.fullscreenMessage == nil
+					{
+						ToolbarItemGroup(placement: .topBarTrailing) {
+							Button("Settings", systemImage: "gear") {
+								isSettingsPresented = true
+							}
 							.keyboardShortcut(",")
+						}
 					}
 					#endif
+				}
+				.task {
+					requestReviewIfNeeded()
 				}
 		}
 	}
@@ -100,6 +123,21 @@ struct MainScreen: View {
 //			timeoutReturnValue: "X"
 //		)
 		#endif
+	}
+
+	private func requestReviewIfNeeded() {
+		let sevenDays = 7.0 * 24.0 * 60.0 * 60.0
+
+		guard
+			!SSApp.isFirstLaunch,
+			hasRequestedReview,
+			SSApp.firstLaunchDate < Date.now.addingTimeInterval(-sevenDays)
+		else {
+			return
+		}
+
+		requestReview()
+		hasRequestedReview = true
 	}
 }
 

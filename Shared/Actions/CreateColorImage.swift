@@ -1,13 +1,13 @@
 import AppIntents
+import SwiftUI
 
-struct CreateColorImage: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "CreateColorImageIntent"
-
+struct CreateColorImageIntent: AppIntent {
 	static let title: LocalizedStringResource = "Create Color Image"
 
 	static let description = IntentDescription(
 		"Creates a solid color image.",
-		categoryName: "Image"
+		categoryName: "Image",
+		resultValueName: "Color Image"
 	)
 
 	@Parameter(
@@ -39,13 +39,13 @@ struct CreateColorImage: AppIntent, CustomIntentMigratedAppIntent {
 
 	func perform() async throws -> some IntentResult & ReturnsValue<IntentFile> {
 		guard
-			let color = XColor(hexString: color, opacity: opacity)
+			let color = Color.Resolved(hexString: color, opacity: opacity)
 		else {
 			throw "Invalid color.".toError
 		}
 
 		let result = try XImage.color(
-			color,
+			color.toColor,
 			size: .init(width: width, height: height),
 			scale: 1
 		)

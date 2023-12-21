@@ -1,17 +1,16 @@
 import AppIntents
 
-struct GetQueryItemsFromURL: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "GetQueryItemsFromURLIntent"
-
+struct GetQueryItemsFromURLIntent: AppIntent {
 	static let title: LocalizedStringResource = "Get Query Items from URL"
 
 	static let description = IntentDescription(
-"""
-Returns all query items from the input URL.
+		"""
+		Returns all query items from the input URL.
 
-The name and value of the query item can be accessed individually.
-""",
-		categoryName: "URL"
+		The name and value of the query item can be accessed individually.
+		""",
+		categoryName: "URL",
+		resultValueName: "URL Query Items"
 	)
 
 	@Parameter(title: "URL")

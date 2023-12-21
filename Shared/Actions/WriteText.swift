@@ -1,23 +1,24 @@
 import AppIntents
 import SwiftUI
 
-struct WriteText: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "WriteTextIntent"
-
+struct WriteTextIntent: AppIntent {
 	static let title: LocalizedStringResource = "Write or Edit Text"
 
 	static let description = IntentDescription(
-"""
-Opens a text editor where you can write or edit text.
+		"""
+		Opens a text editor where you can write or edit text.
 
-IMPORTANT: The result is copied to the clipboard. Add the “Wait to Return” and “Get Clipboard” actions after this one.
-""",
+		IMPORTANT: The result is copied to the clipboard. Add the “Wait to Return” and “Get Clipboard” actions after this one.
+		""",
 		categoryName: "Utility"
 	)
 
 	static let openAppWhenRun = true
 
-	@Parameter(title: "Text")
+	@Parameter(
+		title: "Text",
+		inputOptions: .init(keyboardType: .default)
+	)
 	var text: String?
 
 	@Parameter(
@@ -29,7 +30,10 @@ IMPORTANT: The result is copied to the clipboard. Add the “Wait to Return” a
 
 	@Parameter(
 		title: "Editor Title",
-		inputOptions: String.IntentInputOptions(capitalizationType: .words)
+		inputOptions: String.IntentInputOptions(
+			keyboardType: .default,
+			capitalizationType: .words
+		)
 	)
 	var editorTitle: String?
 
@@ -47,6 +51,9 @@ IMPORTANT: The result is copied to the clipboard. Add the “Wait to Return” a
 
 	@MainActor
 	func perform() async throws -> some IntentResult {
+		// Work around issue with it not showing. (iOS 17.1)
+		try await Task.sleep(for: .seconds(0.1))
+
 		AppState.shared.writeTextData = .init(
 			title: editorTitle,
 			text: shouldEdit ? (text?.nilIfEmptyOrWhitespace ?? "") : ""

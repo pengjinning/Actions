@@ -4,19 +4,20 @@ struct HexEncode: AppIntent {
 	static let title: LocalizedStringResource = "Hex Encode"
 
 	static let description = IntentDescription(
-"""
-Encodes or decodes text or files using Hex encoding.
+		"""
+		Encodes or decodes text or files using Hex encoding.
 
-Example: Hi → 4869
+		Example: Hi → 4869
 
-Note: Use Base64 encoding whenever possible as it's more space efficient.
-""",
+		Note: Use Base64 encoding whenever possible as it's more space efficient.
+		""",
 		categoryName: "Parse / Generate",
 		searchKeywords: [
 			"base16",
 			"hexadecimal",
 			"binary"
-		]
+		],
+		resultValueName: "Hex Encoded Data"
 	)
 
 	@Parameter(
@@ -42,7 +43,7 @@ Note: Use Base64 encoding whenever possible as it's more space efficient.
 	var decodeContentType: String?
 
 	static var parameterSummary: some ParameterSummary {
-		// This fails on Xcode 14.3
+		// This fails on Xcode 15.
 //		When(\.$action, .equalTo, .encode) {
 //			Summary("\(\.$action) \(\.$input) to Hex")
 //		} otherwise: {

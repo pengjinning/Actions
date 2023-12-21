@@ -5,12 +5,13 @@ struct SetUniformTypeIdentifier: AppIntent {
 	static let title: LocalizedStringResource = "Set Uniform Type Identifier"
 
 	static let description = IntentDescription(
-"""
-Sets the Uniform Type Identifier (UTI) of the input file.
+		"""
+		Sets the Uniform Type Identifier (UTI) of the input file.
 
-This can be useful when the previous shortcut action returned some data without a specific type.
-""",
-		categoryName: "File"
+		This can be useful when the previous shortcut action returned some data without a specific type.
+		""",
+		categoryName: "File",
+		resultValueName: "File with Updated Uniform Type Identifier"
 	)
 
 	@Parameter(title: "File", supportedTypeIdentifiers: ["public.item"])

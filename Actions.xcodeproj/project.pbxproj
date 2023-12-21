@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E303EED329529D0B007BE918 /* GetDefaultPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376FD862952937200C0F81F /* GetDefaultPrinter.swift */; };
-		E303EED429529D14007BE918 /* GetPrinters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376FD84295287E500C0F81F /* GetPrinters.swift */; };
+		E303EED429529D14007BE918 /* FindPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376FD84295287E500C0F81F /* FindPrinter.swift */; };
 		E303EED529529D1B007BE918 /* SetDefaultPrinter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E376FD882952946400C0F81F /* SetDefaultPrinter.swift */; };
 		E30E56132922602B00C44823 /* GetRandomNumberFromSeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30E56122922602B00C44823 /* GetRandomNumberFromSeed.swift */; };
 		E31748A92916A0B200F6319E /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31748A82916A0B200F6319E /* Main.swift */; };
@@ -97,8 +97,9 @@
 		E337FA3B2ADFCE9700BF9542 /* GetAverageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E337FA3A2ADFCE9700BF9542 /* GetAverageColor.swift */; };
 		E33AE99E2ADF10B800862F55 /* IsAccessibilityFeatureOn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E375A5CE2ADEE387004BCBFA /* IsAccessibilityFeatureOn.swift */; };
 		E33AE9A02ADFBB6600862F55 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33AE99F2ADFBB6600862F55 /* Color.swift */; };
+		E33D00F52B12DCFE0063524E /* GetBluetoothDevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30ADE952B0B6CA100000F41 /* GetBluetoothDevices.swift */; };
+		E33D00F62B12DD070063524E /* GetBluetoothDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30ADE9E2B0E199500000F41 /* GetBluetoothDevice.swift */; };
 		E33D080D2A11623200FBCAD7 /* SimpleKeychain in Frameworks */ = {isa = PBXBuildFile; productRef = E33D080C2A11623200FBCAD7 /* SimpleKeychain */; };
-		E33D080F2A11629500FBCAD7 /* AskChatGPT.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D080E2A11629500FBCAD7 /* AskChatGPT.swift */; };
 		E33D08142A11679300FBCAD7 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D08132A11679300FBCAD7 /* SettingsScreen.swift */; };
 		E33D4BA62744238300CC7A8A /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33D4BA42744238300CC7A8A /* AppState.swift */; };
 		E343F9B829713AFF00AD82F4 /* GetMapImageOfLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E317489E2913BEAB00F6319E /* GetMapImageOfLocation.swift */; };
@@ -117,14 +118,17 @@
 		E36A41B32AC605AF00A29195 /* CreateMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD691FCD2A9CCD4C00C55178 /* CreateMenuItem.swift */; };
 		E3722CE82ACDCA2A0007316D /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3722CE72ACDCA2A0007316D /* Debug.swift */; };
 		E3722CED2ACDE28D0007316D /* CombineVideos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3722CEC2ACDE28D0007316D /* CombineVideos.swift */; };
+		E3759BF02B025EC700AA26C2 /* IsDeviceMoving.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3759BED2B022CB400AA26C2 /* IsDeviceMoving.swift */; };
+		E3759BF42B02C5C900AA26C2 /* GetDeviceMotionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3759BF12B02A89B00AA26C2 /* GetDeviceMotionData.swift */; };
 		E376FD8329524B6400C0F81F /* IsDarkMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C33CA928D3A81700386C59 /* IsDarkMode.swift */; };
 		E37A1E222A2D214800E68E92 /* GetDominantColorsOfImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A1E212A2D214800E68E92 /* GetDominantColorsOfImage.swift */; };
 		E38035CB29278B1700D29A07 /* MergeDictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CB44A128D794DA0031D55F /* MergeDictionaries.swift */; };
 		E38663312AE05C840001343A /* GetImageLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38663302AE05C840001343A /* GetImageLocation.swift */; };
 		E38663332AE063A10001343A /* SetImageLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38663322AE063A10001343A /* SetImageLocation.swift */; };
+		E38BB1BF2B31CCED000C9B32 /* SwiftBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = E38BB1BE2B31CCED000C9B32 /* SwiftBluetooth */; };
 		E3963A5A292CAF9F00210AC2 /* RemoveDuplicatesFromList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EC2DC328D215A100A88E25 /* RemoveDuplicatesFromList.swift */; };
 		E39692CA2AE130F90030AE56 /* IsShakingDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39692C92AE130F90030AE56 /* IsShakingDevice.swift */; };
-		E39DC11529A5460B004F4FB8 /* IsHostReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0655D29A51E160059A16E /* IsHostReachable.swift */; };
+		E3A246852AFEC35100453E9C /* Authenticate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A246842AFEC35100453E9C /* Authenticate2.swift */; };
 		E3AB2D8B29F840B900ED2913 /* GetActionsVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AB2D8A29F840B900ED2913 /* GetActionsVersion.swift */; };
 		E3AFA5C32A9B58160044E2F1 /* Boolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3AFA5C22A9B58160044E2F1 /* Boolean.swift */; };
 		E3B8FD1629ED376F001249CF /* TruncateNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8FD1529ED376F001249CF /* TruncateNumber.swift */; };
@@ -145,9 +149,9 @@
 		E3CB44AB28D7A10C0031D55F /* TranscribeAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CB44A928D7A10C0031D55F /* TranscribeAudio.swift */; };
 		E3CC6D6229A7E293002D8C67 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CC6D6129A7E293002D8C67 /* GlobalVariable.swift */; };
 		E3CF4F9828FDA7EB00BD88D5 /* GenerateRandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CF4F9728FDA7EB00BD88D5 /* GenerateRandomData.swift */; };
-		E3D0656129A53EC60059A16E /* IsWebServerReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DE7F528D5E50400DE79EF /* IsWebServerReachable.swift */; };
 		E3D3A30C2A5BECED00F45541 /* GetDeviceDetailsExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D3A30B2A5BECED00F45541 /* GetDeviceDetailsExtended.swift */; };
 		E3D53BF82A9385F5007A1340 /* GetModifierKeyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D53BF72A9385F5007A1340 /* GetModifierKeyState.swift */; };
+		E3D737F72B00274900E9023B /* GetCompassHeading.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D737F52B00230100E9023B /* GetCompassHeading.swift */; };
 		E3DB884D28E6E3AD00FEE8D6 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DB884B28E6E3AD00FEE8D6 /* HapticFeedback.swift */; };
 		E3DB885028E6EE7B00FEE8D6 /* HideShortcutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DB884F28E6EE7B00FEE8D6 /* HideShortcutsApp.swift */; };
 		E3DB885228E6EFBB00FEE8D6 /* ScanDocuments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DB885128E6EFBB00FEE8D6 /* ScanDocuments.swift */; };
@@ -155,6 +159,9 @@
 		E3DB885728E727E200FEE8D6 /* ChooseFromListExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DB885528E727E200FEE8D6 /* ChooseFromListExtended.swift */; };
 		E3DB886C28E7549800FEE8D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DB886B28E7549800FEE8D6 /* Constants.swift */; };
 		E3EA7D7B28EAC2210043F782 /* BlurImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA7D7A28EAC2210043F782 /* BlurImages.swift */; };
+		E3EF8AE82AEFC431007B0F32 /* IsCallActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EF8AE72AEFC431007B0F32 /* IsCallActive.swift */; };
+		E3EF8AE92AEFCAD3007B0F32 /* IsHostReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3D0655D29A51E160059A16E /* IsHostReachable.swift */; };
+		E3EF8AEA2AEFCBDB007B0F32 /* IsWebServerReachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31DE7F528D5E50400DE79EF /* IsWebServerReachable.swift */; };
 		E3F64D7628D9F9930009B500 /* CreateColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F64D7528D9F9930009B500 /* CreateColorImage.swift */; };
 		E3F64D7928D9FCA20009B500 /* GetSymbolImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F64D7728D9FCA20009B500 /* GetSymbolImage.swift */; };
 		E3FC71DD271EBE5C00C9D255 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC71DC271EBE5B00C9D255 /* Utilities.swift */; };
@@ -185,6 +192,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E30ADE952B0B6CA100000F41 /* GetBluetoothDevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBluetoothDevices.swift; sourceTree = "<group>"; };
+		E30ADE9E2B0E199500000F41 /* GetBluetoothDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBluetoothDevice.swift; sourceTree = "<group>"; };
 		E30E56122922602B00C44823 /* GetRandomNumberFromSeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRandomNumberFromSeed.swift; sourceTree = "<group>"; };
 		E317489E2913BEAB00F6319E /* GetMapImageOfLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMapImageOfLocation.swift; sourceTree = "<group>"; };
 		E31748A0291589B600F6319E /* GetHighResolutionTimestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHighResolutionTimestamp.swift; sourceTree = "<group>"; };
@@ -213,7 +222,6 @@
 		E337A3DF27E850EC0073E865 /* ChooseFromListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFromListScreen.swift; sourceTree = "<group>"; };
 		E337FA3A2ADFCE9700BF9542 /* GetAverageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAverageColor.swift; sourceTree = "<group>"; };
 		E33AE99F2ADFBB6600862F55 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		E33D080E2A11629500FBCAD7 /* AskChatGPT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskChatGPT.swift; sourceTree = "<group>"; };
 		E33D08132A11679300FBCAD7 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		E33D4BA42744238300CC7A8A /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		E33DFF662748C6B100C79D78 /* InternetAccessPolicy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InternetAccessPolicy.json; sourceTree = "<group>"; };
@@ -233,8 +241,10 @@
 		E365C11A2A4C683200A902D4 /* WaitMilliseconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitMilliseconds.swift; sourceTree = "<group>"; };
 		E3722CE72ACDCA2A0007316D /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		E3722CEC2ACDE28D0007316D /* CombineVideos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineVideos.swift; sourceTree = "<group>"; };
+		E3759BED2B022CB400AA26C2 /* IsDeviceMoving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsDeviceMoving.swift; sourceTree = "<group>"; };
+		E3759BF12B02A89B00AA26C2 /* GetDeviceMotionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDeviceMotionData.swift; sourceTree = "<group>"; };
 		E375A5CE2ADEE387004BCBFA /* IsAccessibilityFeatureOn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsAccessibilityFeatureOn.swift; sourceTree = "<group>"; };
-		E376FD84295287E500C0F81F /* GetPrinters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPrinters.swift; sourceTree = "<group>"; };
+		E376FD84295287E500C0F81F /* FindPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPrinter.swift; sourceTree = "<group>"; };
 		E376FD862952937200C0F81F /* GetDefaultPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDefaultPrinter.swift; sourceTree = "<group>"; };
 		E376FD882952946400C0F81F /* SetDefaultPrinter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDefaultPrinter.swift; sourceTree = "<group>"; };
 		E37A1E212A2D214800E68E92 /* GetDominantColorsOfImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDominantColorsOfImage.swift; sourceTree = "<group>"; };
@@ -243,6 +253,7 @@
 		E39692C92AE130F90030AE56 /* IsShakingDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsShakingDevice.swift; sourceTree = "<group>"; };
 		E39DC11A29A54E27004F4FB8 /* OpenURLsWithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenURLsWithApp.swift; path = "Intents Extension/Actions/OpenURLsWithApp.swift"; sourceTree = SOURCE_ROOT; };
 		E39F4776272D516E00B99CB0 /* Actions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Actions.entitlements; sourceTree = "<group>"; };
+		E3A246842AFEC35100453E9C /* Authenticate2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticate2.swift; sourceTree = "<group>"; };
 		E3A85FE428E94E7300F423F1 /* FormatPersonName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatPersonName.swift; sourceTree = "<group>"; };
 		E3AB2D8A29F840B900ED2913 /* GetActionsVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetActionsVersion.swift; sourceTree = "<group>"; };
 		E3AFA5C22A9B58160044E2F1 /* Boolean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Boolean.swift; sourceTree = "<group>"; };
@@ -295,6 +306,7 @@
 		E3D514C728EEA8F8003F7C2E /* FlashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashScreen.swift; sourceTree = "<group>"; };
 		E3D514C928EEAAEC003F7C2E /* CalculateWithSoulver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateWithSoulver.swift; sourceTree = "<group>"; };
 		E3D53BF72A9385F5007A1340 /* GetModifierKeyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetModifierKeyState.swift; sourceTree = "<group>"; };
+		E3D737F52B00230100E9023B /* GetCompassHeading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompassHeading.swift; sourceTree = "<group>"; };
 		E3DB884B28E6E3AD00FEE8D6 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		E3DB884F28E6EE7B00FEE8D6 /* HideShortcutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideShortcutsApp.swift; sourceTree = "<group>"; };
 		E3DB885128E6EFBB00FEE8D6 /* ScanDocuments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanDocuments.swift; sourceTree = "<group>"; };
@@ -329,6 +341,7 @@
 		E3EC2DE528D25DF900A88E25 /* AddToList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToList.swift; sourceTree = "<group>"; };
 		E3EC2DE728D2DB1000A88E25 /* GenerateRandomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRandomText.swift; sourceTree = "<group>"; };
 		E3EC2DE928D2E5B900A88E25 /* RemoveFromList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFromList.swift; sourceTree = "<group>"; };
+		E3EF8AE72AEFC431007B0F32 /* IsCallActive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsCallActive.swift; sourceTree = "<group>"; };
 		E3F64D6B28D9EDFE0009B500 /* FormatDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDuration.swift; sourceTree = "<group>"; };
 		E3F64D7128D9F3810009B500 /* EditURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditURL.swift; sourceTree = "<group>"; };
 		E3F64D7528D9F9930009B500 /* CreateColorImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateColorImage.swift; sourceTree = "<group>"; };
@@ -355,6 +368,7 @@
 				E337A3E627E8BA6B0073E865 /* FuzzyFind in Frameworks */,
 				E317495F2916A4A300F6319E /* SoulverCore in Frameworks */,
 				E351083928FD8089007C85AE /* Sentry in Frameworks */,
+				E38BB1BF2B31CCED000C9B32 /* SwiftBluetooth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,23 +378,26 @@
 		E30FD0D527908D1A00C01D80 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				E33D080E2A11629500FBCAD7 /* AskChatGPT.swift */,
 				E352420928F6EEDE00A957A7 /* AskForText.swift */,
 				E34AB51528F58B500082AE78 /* Authenticate.swift */,
+				E3A246842AFEC35100453E9C /* Authenticate2.swift */,
 				E3EA7D7A28EAC2210043F782 /* BlurImages.swift */,
 				E3DB885528E727E200FEE8D6 /* ChooseFromListExtended.swift */,
 				E3722CEC2ACDE28D0007316D /* CombineVideos.swift */,
 				E3F64D7528D9F9930009B500 /* CreateColorImage.swift */,
 				FD691FCD2A9CCD4C00C55178 /* CreateMenuItem.swift */,
 				E3722CE72ACDCA2A0007316D /* Debug.swift */,
+				E376FD84295287E500C0F81F /* FindPrinter.swift */,
 				E3CB449D28D791D40031D55F /* GenerateCSV.swift */,
 				E3CF4F9728FDA7EB00BD88D5 /* GenerateRandomData.swift */,
 				E3B8FD1D29F11DCA001249CF /* GetAverageColorOfImage.swift */,
+				E30ADE9E2B0E199500000F41 /* GetBluetoothDevice.swift */,
+				E30ADE952B0B6CA100000F41 /* GetBluetoothDevices.swift */,
+				E3D737F52B00230100E9023B /* GetCompassHeading.swift */,
 				E376FD862952937200C0F81F /* GetDefaultPrinter.swift */,
 				E37A1E212A2D214800E68E92 /* GetDominantColorsOfImage.swift */,
 				E38663302AE05C840001343A /* GetImageLocation.swift */,
 				E317489E2913BEAB00F6319E /* GetMapImageOfLocation.swift */,
-				E376FD84295287E500C0F81F /* GetPrinters.swift */,
 				E3C33CDA28D48C3200386C59 /* GetRunningApps.swift */,
 				E3F64D7728D9FCA20009B500 /* GetSymbolImage.swift */,
 				E3CC6D6129A7E293002D8C67 /* GlobalVariable.swift */,
@@ -389,9 +406,12 @@
 				E3DB884F28E6EE7B00FEE8D6 /* HideShortcutsApp.swift */,
 				E34839A02A885DD90040DF6E /* InvertImages.swift */,
 				E375A5CE2ADEE387004BCBFA /* IsAccessibilityFeatureOn.swift */,
+				E3EF8AE72AEFC431007B0F32 /* IsCallActive.swift */,
 				E3C33CA928D3A81700386C59 /* IsDarkMode.swift */,
 				E350B2512AC3005800BFC34D /* IsDeviceLocked.swift */,
+				E3D0655D29A51E160059A16E /* IsHostReachable.swift */,
 				E3CB448A28D71A180031D55F /* IsScreenLocked.swift */,
+				E31DE7F528D5E50400DE79EF /* IsWebServerReachable.swift */,
 				E3CB44A128D794DA0031D55F /* MergeDictionaries.swift */,
 				E351083528FD79D8007C85AE /* OverwriteFile.swift */,
 				E3CB449728D78CBE0031D55F /* ParseCSV.swift */,
@@ -456,6 +476,7 @@
 				E3C33CB328D43DDA00386C59 /* GetBatteryState.swift */,
 				E34839A22A88DF7D0040DF6E /* GetBooleanFromInput.swift */,
 				E3D3A30B2A5BECED00F45541 /* GetDeviceDetailsExtended.swift */,
+				E3759BF12B02A89B00AA26C2 /* GetDeviceMotionData.swift */,
 				E31DE80128D619DB00DE79EF /* GetDeviceOrientation.swift */,
 				E3C33CA128D37E2B00386C59 /* GetEmojis.swift */,
 				E3CB449B28D78F4C0031D55F /* GetFileIcon.swift */,
@@ -484,13 +505,12 @@
 				E350B24E2AC2AF7D00BFC34D /* IsCellularLowDataModeOn.swift */,
 				E3C33CAF28D3B3EF00386C59 /* IsConnectedToVPN.swift */,
 				E34839A52A88E6A70040DF6E /* IsDay.swift */,
+				E3759BED2B022CB400AA26C2 /* IsDeviceMoving.swift */,
 				E3CB448628D717CA0031D55F /* IsDeviceOrientation.swift */,
-				E3D0655D29A51E160059A16E /* IsHostReachable.swift */,
 				E3C33CB728D43FCF00386C59 /* IsLowPowerMode.swift */,
 				E31DE7F128D5E30C00DE79EF /* IsOnline.swift */,
 				E39692C92AE130F90030AE56 /* IsShakingDevice.swift */,
 				E31DE7E928D5DE0C00DE79EF /* IsSilentModeOn.swift */,
-				E31DE7F528D5E50400DE79EF /* IsWebServerReachable.swift */,
 				E31DE7F728D5E94500DE79EF /* IsWiFiOn.swift */,
 				E39DC11A29A54E27004F4FB8 /* OpenURLsWithApp.swift */,
 				E3D514C528EEA6B9003F7C2E /* PlayAlertSound.swift */,
@@ -610,6 +630,7 @@
 				E351083828FD8089007C85AE /* Sentry */,
 				E317495E2916A4A300F6319E /* SoulverCore */,
 				E33D080C2A11623200FBCAD7 /* SimpleKeychain */,
+				E38BB1BE2B31CCED000C9B32 /* SwiftBluetooth */,
 			);
 			productName = "Actions (iOS)";
 			productReference = E324C9F6271E972300E7CA9B /* Actions.app */;
@@ -648,6 +669,7 @@
 				E32B4F3227FD77700057F08D /* XCRemoteSwiftPackageReference "ExceptionCatcher" */,
 				E317495D2916A4A300F6319E /* XCRemoteSwiftPackageReference "SoulverCore" */,
 				E33D080B2A11623200FBCAD7 /* XCRemoteSwiftPackageReference "SimpleKeychain" */,
+				E38BB1BD2B31CCED000C9B32 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */,
 			);
 			productRefGroup = E324C9F7271E972300E7CA9B /* Products */;
 			projectDirPath = "";
@@ -720,7 +742,6 @@
 				E31749472916A20C00F6319E /* GetEmojis.swift in Sources */,
 				E337FA3B2ADFCE9700BF9542 /* GetAverageColor.swift in Sources */,
 				E31749362916A20C00F6319E /* GetDeviceOrientation.swift in Sources */,
-				E3D0656129A53EC60059A16E /* IsWebServerReachable.swift in Sources */,
 				E3B8FD1B29EEFF49001249CF /* SetUniformTypeIdentifier.swift in Sources */,
 				E31749152916A20C00F6319E /* GetIndexOfListItem.swift in Sources */,
 				E31749482916A20C00F6319E /* GetQueryItemsFromURL.swift in Sources */,
@@ -731,6 +752,7 @@
 				E317491A2916A20C00F6319E /* IsConnectedToVPN.swift in Sources */,
 				E31749402916A20C00F6319E /* CreateURL.swift in Sources */,
 				E31749542916A20C00F6319E /* GetUniformTypeIdentifier.swift in Sources */,
+				E3EF8AE82AEFC431007B0F32 /* IsCallActive.swift in Sources */,
 				E317491C2916A20C00F6319E /* GetHighResolutionTimestamp.swift in Sources */,
 				E31748A92916A0B200F6319E /* Main.swift in Sources */,
 				E31749512916A20C00F6319E /* TransformLists.swift in Sources */,
@@ -743,7 +765,6 @@
 				E317493B2916A20C00F6319E /* TruncateText.swift in Sources */,
 				E3B8FD1629ED376F001249CF /* TruncateNumber.swift in Sources */,
 				E317494B2916A20C00F6319E /* IsBluetoothOn.swift in Sources */,
-				E39DC11529A5460B004F4FB8 /* IsHostReachable.swift in Sources */,
 				E31748B52916A12800F6319E /* Utilities.swift in Sources */,
 				E31749252916A20C00F6319E /* ConvertUnixTimeToDate.swift in Sources */,
 				E317492A2916A20C00F6319E /* GetQueryItemValueFromURL.swift in Sources */,
@@ -774,6 +795,7 @@
 				E317492E2916A20C00F6319E /* FormatCurrency.swift in Sources */,
 				E317494A2916A20C00F6319E /* GetRandomBoolean.swift in Sources */,
 				E31749442916A20C00F6319E /* IsLowPowerMode.swift in Sources */,
+				E3759BF42B02C5C900AA26C2 /* GetDeviceMotionData.swift in Sources */,
 				E31749382916A20C00F6319E /* RemoveFromList.swift in Sources */,
 				E31749282916A20C00F6319E /* IsCellularDataOn.swift in Sources */,
 				E317490C2916A20C00F6319E /* PlayAlertSound.swift in Sources */,
@@ -790,6 +812,7 @@
 				E317490E2916A20C00F6319E /* ShuffleList.swift in Sources */,
 				E31749452916A20C00F6319E /* IsSilentModeOn.swift in Sources */,
 				E31749412916A20C00F6319E /* FormatNumberCompact.swift in Sources */,
+				E3759BF02B025EC700AA26C2 /* IsDeviceMoving.swift in Sources */,
 				E317492D2916A20C00F6319E /* ClampNumber.swift in Sources */,
 				E317491D2916A20C00F6319E /* GetMusicPlaylists.swift in Sources */,
 				E31749352916A20C00F6319E /* GeoURI.swift in Sources */,
@@ -804,7 +827,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3EA7D7B28EAC2210043F782 /* BlurImages.swift in Sources */,
-				E33D080F2A11629500FBCAD7 /* AskChatGPT.swift in Sources */,
 				E3C33CDC28D48C3200386C59 /* GetRunningApps.swift in Sources */,
 				E3BFF7B527428F5200B830DE /* WelcomeScreen.swift in Sources */,
 				E3F64D7628D9F9930009B500 /* CreateColorImage.swift in Sources */,
@@ -817,6 +839,7 @@
 				E37A1E222A2D214800E68E92 /* GetDominantColorsOfImage.swift in Sources */,
 				E34AB51628F58B500082AE78 /* Authenticate.swift in Sources */,
 				E3CB449928D78CBE0031D55F /* ParseCSV.swift in Sources */,
+				E33D00F52B12DCFE0063524E /* GetBluetoothDevices.swift in Sources */,
 				E3722CE82ACDCA2A0007316D /* Debug.swift in Sources */,
 				E351083628FD79D8007C85AE /* OverwriteFile.swift in Sources */,
 				E352420C28F6F6AD00A957A7 /* AskForTextScreen.swift in Sources */,
@@ -824,6 +847,8 @@
 				E351083128FD14A2007C85AE /* HexEncode.swift in Sources */,
 				E3DB886C28E7549800FEE8D6 /* Constants.swift in Sources */,
 				E3DB884D28E6E3AD00FEE8D6 /* HapticFeedback.swift in Sources */,
+				E3EF8AEA2AEFCBDB007B0F32 /* IsWebServerReachable.swift in Sources */,
+				E33D00F62B12DD070063524E /* GetBluetoothDevice.swift in Sources */,
 				E3CB448B28D71A180031D55F /* IsScreenLocked.swift in Sources */,
 				E350B2522AC3005800BFC34D /* IsDeviceLocked.swift in Sources */,
 				E36A41B32AC605AF00A29195 /* CreateMenuItem.swift in Sources */,
@@ -833,14 +858,16 @@
 				E33D4BA62744238300CC7A8A /* AppState.swift in Sources */,
 				E3CF4F9828FDA7EB00BD88D5 /* GenerateRandomData.swift in Sources */,
 				E3CB44A828D79EF90031D55F /* ScanQRCodesInImage.swift in Sources */,
+				E3A246852AFEC35100453E9C /* Authenticate2.swift in Sources */,
 				E303EED329529D0B007BE918 /* GetDefaultPrinter.swift in Sources */,
 				E3DB885228E6EFBB00FEE8D6 /* ScanDocuments.swift in Sources */,
 				E3B8FD1929ED4305001249CF /* GetTitleOfURL.swift in Sources */,
 				E3B8FD1829ED42DA001249CF /* GetUnsplashImage.swift in Sources */,
 				E38035CB29278B1700D29A07 /* MergeDictionaries.swift in Sources */,
 				E343F9B829713AFF00AD82F4 /* GetMapImageOfLocation.swift in Sources */,
-				E303EED429529D14007BE918 /* GetPrinters.swift in Sources */,
+				E303EED429529D14007BE918 /* FindPrinter.swift in Sources */,
 				E3DB885028E6EE7B00FEE8D6 /* HideShortcutsApp.swift in Sources */,
+				E3D737F72B00274900E9023B /* GetCompassHeading.swift in Sources */,
 				E3F64D7928D9FCA20009B500 /* GetSymbolImage.swift in Sources */,
 				E3BFF7B22742616400B830DE /* WriteTextScreen.swift in Sources */,
 				E3DB885728E727E200FEE8D6 /* ChooseFromListExtended.swift in Sources */,
@@ -855,6 +882,7 @@
 				E38663332AE063A10001343A /* SetImageLocation.swift in Sources */,
 				E3CB44AB28D7A10C0031D55F /* TranscribeAudio.swift in Sources */,
 				E352420A28F6EEDE00A957A7 /* AskForText.swift in Sources */,
+				E3EF8AE92AEFCAD3007B0F32 /* IsHostReachable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,8 +1024,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1057,8 +1085,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
-				MACOSX_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1085,13 +1113,14 @@
 				INFOPLIST_FILE = Shared/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Required to use the “Get Music Playlists” action.";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required to use the “Is Bluetooth On” action.";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Required to use the “Is Bluetooth On” action.";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required to use the “Is Bluetooth On” and “Get Bluetooth Devices” actions.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Required to use the “Is Bluetooth On” and “Get Bluetooth Devices” actions.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Required to use the “Scan Documents” action.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Required to get the user's name in the “Get User Details” action.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Required to use the “Authenticate” action.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © Sindre Sorhus";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Required to use the “Is Host Reachable” and “Is Web Server Reachable” actions with devices on your local network.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Required to use the “Get Compass Heading” action.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Required to use the “Transcribe Audio” action.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1134,13 +1163,14 @@
 				INFOPLIST_FILE = Shared/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Required to use the “Get Music Playlists” action.";
-				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required to use the “Is Bluetooth On” action.";
-				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Required to use the “Is Bluetooth On” action.";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Required to use the “Is Bluetooth On” and “Get Bluetooth Devices” actions.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Required to use the “Is Bluetooth On” and “Get Bluetooth Devices” actions.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Required to use the “Scan Documents” action.";
 				INFOPLIST_KEY_NSContactsUsageDescription = "Required to get the user's name in the “Get User Details” action.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Required to use the “Authenticate” action.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © Sindre Sorhus";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Required to use the “Is Host Reachable” and “Is Web Server Reachable” actions with devices on your local network.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Required to use the “Get Compass Heading” action.";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Required to use the “Transcribe Audio” action.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1239,6 +1269,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		E38BB1BD2B31CCED000C9B32 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/SwiftBluetooth";
+			requirement = {
+				kind = revision;
+				revision = 0f2f38b05e983ce8351b1f3e155fd9fe7f279167;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1271,6 +1309,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E3327E95272C68DE00AD5CC7 /* XCRemoteSwiftPackageReference "sentry-cocoa" */;
 			productName = Sentry;
+		};
+		E38BB1BE2B31CCED000C9B32 /* SwiftBluetooth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E38BB1BD2B31CCED000C9B32 /* XCRemoteSwiftPackageReference "SwiftBluetooth" */;
+			productName = SwiftBluetooth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

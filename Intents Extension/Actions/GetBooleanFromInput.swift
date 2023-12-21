@@ -4,14 +4,15 @@ struct GetBooleanFromInput: AppIntent {
 	static let title: LocalizedStringResource = "Get Boolean from Input"
 
 	static let description = IntentDescription(
-"""
-Converts boolean-like text values (for example, “true”, “no”, “1”) into their corresponding boolean representation.
+		"""
+		Converts boolean-like text values (for example, “true”, “no”, “1”) into their corresponding boolean representation.
 
-If no boolean could be detected, it returns an empty result.
+		If no boolean could be detected, it returns an empty result.
 
-This can be useful when an action expects a proper boolean type and you only have some boolean-like text value.
-""",
-		categoryName: "Parse / Generate"
+		This can be useful when an action expects a proper boolean type and you only have some boolean-like text value.
+		""",
+		categoryName: "Parse / Generate",
+		resultValueName: "Boolean"
 	)
 
 	@Parameter(

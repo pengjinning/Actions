@@ -1,13 +1,13 @@
 import AppIntents
 
-struct GetRandomInstant: AppIntent, CustomIntentMigratedAppIntent {
-	static let intentClassName = "RandomDateTimeIntent"
-
+// TODO: Rename the intent to `GetRandomInstant`.
+struct RandomDateTimeIntent: AppIntent {
 	static let title: LocalizedStringResource = "Get Random Date and Time"
 
 	static let description = IntentDescription(
 		"Returns a random date and time in the given range.",
-		categoryName: "Random"
+		categoryName: "Random",
+		resultValueName: "Random Date and Time"
 	)
 
 	@Parameter(title: "Start")
