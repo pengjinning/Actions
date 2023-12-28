@@ -1,12 +1,13 @@
 import AppIntents
 
-struct RandomColorIntent: AppIntent {
+struct GetRandomColor: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "RandomColorIntent"
+
 	static let title: LocalizedStringResource = "Get Random Color"
 
 	static let description = IntentDescription(
 		"Returns a random color.",
-		categoryName: "Color",
-		resultValueName: "Random Color"
+		categoryName: "Color"
 	)
 
 	func perform() async throws -> some IntentResult & ReturnsValue<ColorAppEntity> {

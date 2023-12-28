@@ -1,6 +1,8 @@
 import AppIntents
 
-struct TransformTextIntent: AppIntent {
+struct TransformText: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "TransformTextIntent"
+
 	static let title: LocalizedStringResource = "Transform Text"
 
 	static let description = IntentDescription(
@@ -24,8 +26,7 @@ struct TransformTextIntent: AppIntent {
 			"latin",
 			"ascii",
 			"diacritic"
-		],
-		resultValueName: "Transformed Text"
+		]
 	)
 
 	@Parameter(title: "Text")
@@ -38,7 +39,7 @@ struct TransformTextIntent: AppIntent {
 		Summary("Transform \(\.$text) using \(\.$transformation)")
 	}
 
-	func perform() async throws -> some IntentResult & ReturnsValue<String?> {
+	func perform() async throws -> some IntentResult & ReturnsValue<String> {
 		let value: String? = switch transformation {
 			case .camelCase:
 				text.camelCasing()
@@ -80,7 +81,7 @@ struct TransformTextIntent: AppIntent {
 
 		// TODO: Should it throw if nil?
 
-		return .result(value: value)
+		return .result(value: value ?? "")
 	}
 }
 

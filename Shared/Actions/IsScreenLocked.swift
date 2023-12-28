@@ -1,7 +1,9 @@
 import AppIntents
 
 @available(iOS, unavailable)
-struct IsScreenLockedIntent: AppIntent {
+struct IsScreenLocked: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "IsScreenLockedIntent"
+
 	static let title: LocalizedStringResource = "Is Screen Locked (macOS-only)"
 
 	static let description = IntentDescription(

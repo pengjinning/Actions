@@ -50,7 +50,7 @@ struct ChooseFromListScreen: View {
 				#if canImport(UIKit)
 				.navigationBarTitleDisplayMode(.inline)
 				.environment(\.editMode, .constant(data.selectMultiple ? .active : .inactive))
-				// TODO: I can use this for macOS too, but as of macOS 14.1, there's a bug where the alert text field does not get focused when it's shown.
+				// TODO: I can use this for macOS too, but as of macOS 13.0, there's a bug where the alert get's two buttons called "Add".
 				.alert2(
 					data.selectMultiple ? "Add Item" : "Custom Item",
 					isPresented: $isAddItemScreenPresented
@@ -58,7 +58,8 @@ struct ChooseFromListScreen: View {
 					AddItemScreen2 { item in
 						if data.selectMultiple {
 							customElements.prepend(item)
-							multipleSelection.insert(item)
+							// TODO: We don't select as it selects two elements instead of just this one. (iOS 16.0)
+//							multipleSelection.insert(item)
 						} else {
 							finishSingleSelection(item)
 						}
@@ -120,11 +121,11 @@ struct ChooseFromListScreen: View {
 				.searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
 				#endif
 				.onChange(of: singleSelection) {
-					guard let singleSelection else {
+					guard let selection = $0 else {
 						return
 					}
 
-					finishSingleSelection(singleSelection)
+					finishSingleSelection(selection)
 				}
 				.task {
 					if data.selectMultiple, data.selectAllInitially {
@@ -162,7 +163,7 @@ struct ChooseFromListScreen: View {
 			}
 			#endif
 		} else {
-			// TODO: Use the iOS solution on macOS too. Use `.formStyle(.grouped)`. Try when targeting macOS 15.
+			// TODO: Use the iOS solution on macOS too. Use `.formStyle(.grouped)`.
 			#if os(macOS)
 			List(searchResults, id: \.self, selection: $singleSelection) {
 				Text($0.trimmed.firstLine)
@@ -190,7 +191,7 @@ struct ChooseFromListScreen: View {
 					Button(element.trimmed.firstLine) {
 						singleSelection = element
 					}
-						// TODO: Check if I can do this on macOS 15.
+						// TODO: Check if I can do this on macOS 13.
 						// We cannot do this on macOS as macOS cannot have a `NavigationView` with a single column. (macOS 12.3)
 						.buttonStyle(.navigationLink)
 						.lineLimit(2)
@@ -202,7 +203,7 @@ struct ChooseFromListScreen: View {
 
 	#if os(macOS)
 	private var header: some View {
-		// TODO: `.searchable` does not work on macOS when used in a sheet. Open FB about this if not if not fixed in macOS 15. (macOS 14.1)
+		// TODO: `.searchable` does not work on macOS when used in a sheet. Open FB about this if not if not fixed in macOS 13.
 		SearchField(text: $searchText, placeholder: "Search")
 			.padding()
 			.onExitCommand {
@@ -338,11 +339,11 @@ private struct AddItemScreen2: View {
 			clear()
 		}
 		Button("Cancel", role: .cancel) {
-			clear() // TODO: We clear it manually as `text` is not cleared. It should be. (iOS 17.1)
+			clear()
 		}
 	}
 
 	private func clear() {
-		text = ""
+		text = "" // TODO: Text is not cleared. It should be. (iOS 16.0)
 	}
 }

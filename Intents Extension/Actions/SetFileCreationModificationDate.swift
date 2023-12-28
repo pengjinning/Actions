@@ -1,18 +1,19 @@
 import AppIntents
 
-struct SetFileCreationModificationDateIntent: AppIntent {
+struct SetFileCreationModificationDate: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "SetFileCreationModificationDateIntent"
+
 	static let title: LocalizedStringResource = "Set Creation and Modification Date of File"
 
 	static let description = IntentDescription(
-		"""
-		Sets the creation and modification date of a file or folder to a new value.
+"""
+Sets the creation and modification date of a file or folder to a new value.
 
-		To be able to select a folder, use the built-in “Folder” action.
+To be able to select a folder, use the built-in “Folder” action.
 
-		Note: Setting the modification date of a file/folder in iCloud may not work as iCloud changes the modification date when it syncs.
-		""",
-		categoryName: "File",
-		resultValueName: "File with Updated Creation and Modification Date"
+Note: Setting the modification date of a file/folder in iCloud may not work as iCloud changes the modification date when it syncs.
+""",
+		categoryName: "File"
 	)
 
 	@Parameter(title: "File", supportedTypeIdentifiers: ["public.item"])

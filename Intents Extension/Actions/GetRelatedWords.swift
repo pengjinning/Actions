@@ -1,17 +1,18 @@
 import AppIntents
 import NaturalLanguage
 
-struct GetRelatedWordsIntent: AppIntent {
+struct GetRelatedWords: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GetRelatedWordsIntent"
+
 	static let title: LocalizedStringResource = "Get Related Words"
 
 	static let description = IntentDescription(
-		"""
-		Returns words related to the input word.
+"""
+Returns words related to the input word.
 
-		For example, given the word “horse”, it would return stallion, racehorse, pony, etc.
-		""",
-		categoryName: "Text",
-		resultValueName: "Related Words"
+For example, given the word “horse”, it would return stallion, racehorse, pony, etc.
+""",
+		categoryName: "Text"
 	)
 
 	@Parameter(

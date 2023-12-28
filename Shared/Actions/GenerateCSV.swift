@@ -1,19 +1,20 @@
 import AppIntents
 import TabularData
 
-struct GenerateCSVIntent: AppIntent {
+struct GenerateCSV: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GenerateCSVIntent"
+
 	static let title: LocalizedStringResource = "Generate CSV"
 
 	static let description = IntentDescription(
-		"""
-		Generates a CSV file from a list of dictionaries.
+"""
+Generates a CSV file from a list of dictionaries.
 
-		The keys of the dictionaries are the CSV headers.
+The keys of the dictionaries are the CSV headers.
 
-		The dictionaries must have the same shape.
-		""",
-		categoryName: "Parse / Generate",
-		resultValueName: "CSV File"
+The dictionaries must have the same shape.
+""",
+		categoryName: "Parse / Generate"
 	)
 
 	@Parameter(title: "Dictionaries", supportedTypeIdentifiers: ["public.json"])
@@ -41,7 +42,7 @@ struct GenerateCSVIntent: AppIntent {
 	var customDelimiter: String?
 
 	static var parameterSummary: some ParameterSummary {
-		// This fails on Xcode 15.
+		// This fails on Xcode 14.3
 //		When(\.$delimiter, .equalTo, .custom) {
 //			Summary("Generate CSV from \(\.$dictionaries)") {
 //				\.$delimiter
@@ -74,9 +75,6 @@ struct GenerateCSVIntent: AppIntent {
 	func perform() async throws -> some IntentResult & ReturnsValue<IntentFile> {
 		let json = dictionaries.compactMap(\.data.toString).joined(separator: ",")
 		var dataFrame = try DataFrame(jsonData: "[\(json)]".toData)
-
-		print("D", json)
-		print("A", dataFrame)
 
 		// Shortcuts can leave keys empty sometimes and `.selecting()` throws an excepting if trying to use those.
 		let keys = keys.filter { !$0.isEmptyOrWhitespace }

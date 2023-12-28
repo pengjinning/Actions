@@ -1,17 +1,15 @@
 import AppIntents
 import Network
 
-// Note: This has to be in the main app target so that it's able to show the prompt to request access to the local network.
-
 struct IsHostReachable: AppIntent {
 	static let title: LocalizedStringResource = "Is Host Reachable"
 
 	static let description = IntentDescription(
-		"""
-		Returns whether the host at the given domain or IP address is reachable.
+"""
+Returns whether the host at the given domain or IP address is reachable.
 
-		Use the “Is Web Server Reachable” action if the host is a web server.
-		""",
+Use the “Is Web Server Reachable” action if the host is a web server.
+""",
 		categoryName: "Device"
 	)
 
@@ -38,17 +36,9 @@ struct IsHostReachable: AppIntent {
 	@Parameter(title: "Timeout (seconds)", default: 10)
 	var timeout: Double // TODO: Would be nice if this could be the `Duration` type.
 
-	@Parameter(
-		title: "Debug",
-		description: "Throw errors instead of simply returning “false”. Can be useful for debugging.",
-		default: false
-	)
-	var debugMode: Bool
-
 	static var parameterSummary: some ParameterSummary {
 		Summary("Is \(\.$host) at port \(\.$port) reachable?") {
 			\.$timeout
-			\.$debugMode
 		}
 	}
 
@@ -63,15 +53,11 @@ struct IsHostReachable: AppIntent {
 			using: .tcp
 		)
 
-		let result = try await {
+		let result = await {
 			do {
 				try await connection.connect(timeout: timeout.timeIntervalToDuration)
 				return true
 			} catch {
-				if debugMode {
-					throw error
-				}
-
 				return false
 			}
 		}()

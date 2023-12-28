@@ -1,19 +1,21 @@
 import AppIntents
 
 @available(macOS, unavailable)
-struct HapticFeedbackIntent: AppIntent {
+struct HapticFeedback: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "HapticFeedbackIntent"
+
 	static let title: LocalizedStringResource = "Generate Haptic Feedback (iOS-only)"
 
 	static let description = IntentDescription(
-		"""
-		Generate haptic feedback (vibrate).
+"""
+Generate haptic feedback (vibrate).
 
-		The action has to momentarily open the main app as haptic feedback can only be generated from the app.
+The action has to momentarily open the main app as haptic feedback can only be generated from the app.
 
-		Not supported on iPad. Requires iPhone 8 or later.
+Not supported on i​Pad. Requires i​Phone 8 or later.
 
-		On macOS, it does nothing.
-		""",
+On macOS, it does nothing.
+""",
 		categoryName: "Device"
 	)
 
@@ -23,7 +25,7 @@ struct HapticFeedbackIntent: AppIntent {
 	var type: HapticFeedbackTypeAppEnum
 
 	static var parameterSummary: some ParameterSummary {
-		Summary("Generate \(\.$type) haptic feedback (PLEASE READ THE ACTION DESCRIPTION)")
+		Summary("Generate \(\.$type) haptic feedback")
 	}
 
 	@MainActor

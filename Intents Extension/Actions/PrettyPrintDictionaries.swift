@@ -1,12 +1,13 @@
 import AppIntents
 
-struct PrettyPrintDictionariesIntent: AppIntent {
+struct PrettyPrintDictionaries: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "PrettyPrintDictionariesIntent"
+
 	static let title: LocalizedStringResource = "Pretty Print Dictionaries"
 
 	static let description = IntentDescription(
 		"Formats dictionaries (JSON) to be prettier and more readable.",
-		categoryName: "Formatting",
-		resultValueName: "Pretty Printed Dictionaries"
+		categoryName: "Formatting"
 	)
 
 	@Parameter(

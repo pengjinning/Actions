@@ -1,18 +1,19 @@
 import AppIntents
 
-struct SpellOutNumberIntent: AppIntent {
+struct SpellOutNumber: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "SpellOutNumberIntent"
+
 	static let title: LocalizedStringResource = "Spell Out Number"
 
 	static let description = IntentDescription(
-		"""
-		Spells out the input number.
+"""
+Spells out the input number.
 
-		For example, 1000 becomes “one thousand”.
+For example, 1000 becomes "one thousand".
 
-		If a locale is not specified, the system locale is used.
-		""",
-		categoryName: "Formatting",
-		resultValueName: "Spelled Out Number"
+If a locale is not specified, the system locale is used.
+""",
+		categoryName: "Formatting"
 	)
 
 	@Parameter(title: "Number")
@@ -27,7 +28,7 @@ struct SpellOutNumberIntent: AppIntent {
 		}
 	}
 
-	func perform() async throws -> some IntentResult & ReturnsValue<String?> {
+	func perform() async throws -> some IntentResult & ReturnsValue<String> {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .spellOut
 
@@ -35,7 +36,7 @@ struct SpellOutNumberIntent: AppIntent {
 			formatter.locale = Locale(identifier: localeIdentifier)
 		}
 
-		let result = formatter.string(from: number as NSNumber)
+		let result = formatter.string(from: number as NSNumber) ?? ""
 
 		return .result(value: result)
 	}

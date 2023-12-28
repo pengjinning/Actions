@@ -1,6 +1,8 @@
 import AppIntents
 
-struct SendFeedbackIntent: AppIntent {
+struct SendFeedback: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "SendFeedbackIntent"
+
 	static let title: LocalizedStringResource = "Send Feedback"
 
 	static let description = IntentDescription(
@@ -8,13 +10,7 @@ struct SendFeedbackIntent: AppIntent {
 		categoryName: "Meta"
 	)
 
-	@Parameter(
-		title: "Message",
-		inputOptions: String.IntentInputOptions(
-			keyboardType: .default,
-			multiline: true
-		)
-	)
+	@Parameter(title: "Message", inputOptions: String.IntentInputOptions(multiline: true))
 	var message: String
 
 	@Parameter(

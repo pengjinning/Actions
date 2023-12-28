@@ -1,13 +1,14 @@
 import AppIntents
 import CoreLocation
 
-struct GeoURIIntent: AppIntent {
+struct GeoURI: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GeoURIIntent"
+
 	static let title: LocalizedStringResource = "Convert Location to Geo URI"
 
 	static let description = IntentDescription(
 		"Returns the geo URI for the given location.",
-		categoryName: "Location",
-		resultValueName: "Geo URI"
+		categoryName: "Location"
 	)
 
 	@Parameter(title: "Location")

@@ -36,7 +36,6 @@ Intent categories:
 - Parse / Generate
 - Math
 - Location
-- Bluetooth
 - Meta
 - Global Variable
 - Miscellaneous
@@ -45,50 +44,34 @@ Intent categories:
 struct ColorAppEntity: TransientAppEntity {
 	static let typeDisplayRepresentation: TypeDisplayRepresentation = "Color"
 
+	// TODO: Support opacity in the Hex string.
 	@Property(title: "Hex")
 	var hex: String
 
 	@Property(title: "Hex Number")
 	var hexNumber: Int
 
-	@Property(title: "Red (sRGB extended)")
-	var red: Double
-
-	@Property(title: "Green (sRGB extended)")
-	var green: Double
-
-	@Property(title: "Blue (sRGB extended)")
-	var blue: Double
-
-	@Property(title: "Opacity")
-	var opacity: Double
+	// TODO: When targeting macOS 14, add color components properties too (red, green, etc).
 
 	var displayRepresentation: DisplayRepresentation {
 		.init(
 			title: "\(hex)",
 			subtitle: "", // Required to show the `image`. (iOS 16.2)
-			image: XImage.color(toColor.toColor, size: CGSize(width: 1, height: 1), scale: 1)
-				.toDisplayRepresentationImage()
+			image: color.flatMap {
+				XImage.color($0, size: CGSize(width: 1, height: 1), scale: 1)
+					.toDisplayRepresentationImage()
+			}
 		)
 	}
+
+	// TODO: Use `Color.Resolved` when targeting macOS 14.
+	var color: XColor?
 }
 
 extension ColorAppEntity {
-	init(_ color: Color.Resolved) {
+	init(_ color: XColor) {
+		self.color = color
 		self.hex = color.hexString
 		self.hexNumber = color.hex
-		self.red = color.red.toDouble
-		self.green = color.green.toDouble
-		self.blue = color.blue.toDouble
-		self.opacity = color.opacity.toDouble
-	}
-
-	var toColor: Color.Resolved {
-		.init(
-			red: red.toFloat,
-			green: green.toFloat,
-			blue: blue.toFloat,
-			opacity: opacity.toFloat
-		)
 	}
 }

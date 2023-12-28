@@ -1,12 +1,13 @@
 import AppIntents
 
-struct GetBatteryStateIntent: AppIntent {
+struct GetBatteryState: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GetBatteryStateIntent"
+
 	static let title: LocalizedStringResource = "Get Battery State"
 
 	static let description = IntentDescription(
 		"Returns whether the device's battery is unplugged, charging, or full.",
-		categoryName: "Device",
-		resultValueName: "Battery State"
+		categoryName: "Device"
 	)
 
 	@Parameter(title: "State", default: .charging)

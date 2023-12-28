@@ -2,13 +2,14 @@ import AppIntents
 import MediaPlayer
 
 @available(macOS, unavailable)
-struct GetMusicPlaylistsIntent: AppIntent {
+struct GetMusicPlaylists: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GetMusicPlaylistsIntent"
+
 	static let title: LocalizedStringResource = "Get Music Playlists (iOS-only)"
 
 	static let description = IntentDescription(
 		"Returns the names of the playlists in your Music library.",
-		categoryName: "Music",
-		resultValueName: "Music Playlists"
+		categoryName: "Music"
 	)
 
 	func perform() async throws -> some IntentResult & ReturnsValue<[String]> {

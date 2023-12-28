@@ -24,10 +24,12 @@ struct WriteTextScreen: View {
 				.font(.largeBody)
 				.lineSpacing(6)
 				.focused($isTextEditorFocused)
-				.padding() // TODO: Use `.contentMargins()` when it works with `TextEditor`. (macOS 14.1)
+				.padding() // TODO: Use `.safeAreaInset()` when it works with `TextEditor`. (macOS 12.0.1)
 				.navigationTitle(data.title ?? "Text Editor")
-				.fillFrame()
-				.toolbarTitleDisplayMode(.inline)
+				.frame(maxWidth: .infinity, maxHeight: .infinity)
+				#if canImport(UIKit)
+				.navigationBarTitleDisplayMode(.inline)
+				#endif
 				.toolbar {
 					ToolbarItem(placement: .confirmationAction) {
 						Button("Done") {

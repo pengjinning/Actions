@@ -31,11 +31,10 @@ And for high-quality transcription, see my [Aiko](https://sindresorhus.com/aiko)
 
 [![](https://sindresorhus.com/assets/download-on-app-store-badge.svg)](https://apps.apple.com/app/id1586435171)
 
-*Requires at least macOS 14 or iOS 17*
+*Requires at least macOS 13 or iOS 16*
 
 **Older versions (macOS)**
 
-- [2.10.0](https://github.com/sindresorhus/Actions/releases/download/v2.10.0/Actions.2.10.0.zip) for macOS 13+
 - [1.13.1](https://github.com/sindresorhus/Actions/releases/download/v1.13.1/Actions.1.13.1.-.macOS.12.zip) for macOS 12+
 
 ## Included actions
@@ -76,13 +75,9 @@ And for high-quality transcription, see my [Aiko](https://sindresorhus.com/aiko)
 - Get Average Color
 - Get Average Color of Image
 - Get Battery State
-- Get Bluetooth Device
-- Get Bluetooth Devices
 - Get Boolean from Input
-- Get Compass Heading <sup>(iOS-only)</sup>
 - Get Default Printer <sup>(macOS-only)</sup>
 - Get Device Details (Extended)
-- Get Device Motion Data <sup>(iOS-only)</sup>
 - Get Device Orientation
 - Get Dominant Colors of Image
 - Get Emojis
@@ -118,14 +113,12 @@ And for high-quality transcription, see my [Aiko](https://sindresorhus.com/aiko)
 - Is Accessibility Feature On
 - Is Audio Playing <sup>(iOS-only)</sup>
 - Is Bluetooth On
-- Is Call Active <sup>(iOS-only)</sup>
 - Is Cellular Data On
 - Is Cellular Low Data Mode On
 - Is Connected to VPN <sup>(iOS-only)</sup>
 - Is Dark Mode On
 - Is Day
 - Is Device Locked
-- Is Device Moving
 - Is Device Orientation
 - Is Host Reachable
 - Is Low Power Mode On
@@ -195,7 +188,7 @@ And for high-quality transcription, see my [Aiko](https://sindresorhus.com/aiko)
 
 A special version for users that cannot access the App Store. It won't receive automatic updates. I will update it here once a year.
 
-[Download](https://github.com/sindresorhus/meta/files/13718302/Actions.3.0.0.zip) *(3.0.0 · macOS 14+)*
+[Download](https://dsc.cloud/sindresorhus/Actions-2.3.1-1678525767.zip) *(2.3.1 · macOS 13+)*
 
 ## FAQ
 

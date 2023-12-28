@@ -1,18 +1,16 @@
 import AppIntents
 
-struct GetEmojisIntent: AppIntent {
+struct GetEmojis: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GetEmojisIntent"
+
 	static let title: LocalizedStringResource = "Get Emojis"
 
 	static let description = IntentDescription(
 		"Returns all emojis in the input text.",
-		categoryName: "Text",
-		resultValueName: "Emojis"
+		categoryName: "Text"
 	)
 
-	@Parameter(
-		title: "Text",
-		inputOptions: .init(keyboardType: .default)
-	)
+	@Parameter(title: "Text")
 	var text: String
 
 	static var parameterSummary: some ParameterSummary {

@@ -1,16 +1,17 @@
 import AppIntents
 
-struct ClampNumberIntent: AppIntent {
+struct ClampNumber: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "ClampNumberIntent"
+
 	static let title: LocalizedStringResource = "Clamp Number"
 
 	static let description = IntentDescription(
-		"""
-		Clamps the input number to above or equal to the given minimum number and below or equal to the given maximum number.
+"""
+Clamps the input number to above or equal to the given minimum number and below or equal to the given maximum number.
 
-		For example, if you provide 10 as the number, 4 as minimum, and 8 as maximum, you will get 8 back.
-		""",
-		categoryName: "Number",
-		resultValueName: "Clamped Number"
+For example, if you provide 10 as the number, 4 as minimum, and 8 as maximum, you will get 8 back.
+""",
+		categoryName: "Number"
 	)
 
 	@Parameter(title: "Number", controlStyle: .field)

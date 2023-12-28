@@ -1,12 +1,13 @@
 import AppIntents
 
-struct FormatCurrencyIntent: AppIntent {
+struct FormatCurrency: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "FormatCurrencyIntent"
+
 	static let title: LocalizedStringResource = "Format Currency"
 
 	static let description = IntentDescription(
 		"Formats the input amount as currency.",
-		categoryName: "Formatting",
-		resultValueName: "Formatted Currency"
+		categoryName: "Formatting"
 	)
 
 	// We are intentionally not using `IntentCurrencyAmount` as it has bad UX and also doesn't allow not specifying a currency.

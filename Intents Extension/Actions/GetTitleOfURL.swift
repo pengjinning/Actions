@@ -1,13 +1,14 @@
 import AppIntents
 import LinkPresentation
 
-struct GetTitleOfURLIntent: AppIntent {
+struct GetTitleOfURL: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GetTitleOfURLIntent"
+
 	static let title: LocalizedStringResource = "Get Title of URL"
 
 	static let description = IntentDescription(
 		"Returns the title of the given website, or nothing if it failed to get the title.",
-		categoryName: "URL",
-		resultValueName: "Title of URL"
+		categoryName: "URL"
 	)
 
 	@Parameter(title: "URL")
@@ -17,11 +18,11 @@ struct GetTitleOfURLIntent: AppIntent {
 		Summary("Get the title of \(\.$url)")
 	}
 
-	func perform() async throws -> some IntentResult & ReturnsValue<String?> {
+	func perform() async throws -> some IntentResult & ReturnsValue<String> {
 		let metadataProvider = LPMetadataProvider()
 		metadataProvider.shouldFetchSubresources = false
 
-		let result: String? = await {
+		let result: String = await {
 			do {
 				return try await metadataProvider.startFetchingMetadata(for: url).title ?? url.host
 			} catch {
@@ -29,7 +30,7 @@ struct GetTitleOfURLIntent: AppIntent {
 				print(error)
 				return nil // Shortcuts doesn't have any error handling capabilities, so better to just return empty result on failure.
 			}
-		}()
+		}() ?? ""
 
 		return .result(value: result)
 	}

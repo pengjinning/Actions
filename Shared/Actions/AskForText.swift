@@ -5,13 +5,13 @@ struct AskForText: AppIntent {
 	static let title: LocalizedStringResource = "Ask for Text with Timeout"
 
 	static let description = IntentDescription(
-		"""
-		Displays a dialog prompting the user to enter some text.
+"""
+Displays a dialog prompting the user to enter some text.
 
-		If you provide a timeout, the action will cancel after the given timeout as long as the user has not started writing anything.
+If you provide a timeout, the action will cancel after the given timeout as long as the user has not started writing anything.
 
-		IMPORTANT: The result is copied to the clipboard. Add the “Wait to Return” and “Get Clipboard” actions after this one.
-		""",
+IMPORTANT: The result is copied to the clipboard. Add the “Wait to Return” and “Get Clipboard” actions after this one.
+""",
 		categoryName: "Utility"
 	)
 
@@ -67,9 +67,6 @@ struct AskForText: AppIntent {
 
 	@MainActor
 	func perform() async throws -> some IntentResult {
-		// Work around issue with it not showing. (iOS 17.1)
-		try await Task.sleep(for: .seconds(0.1))
-
 		AppState.shared.isFullscreenOverlayPresented = true
 
 		AppState.shared.askForTextData = .init(
@@ -104,19 +101,35 @@ enum InputTypeAppEnum: String, AppEnum {
 	]
 }
 
+#if canImport(UIKit)
 extension InputTypeAppEnum {
-	var toContentType: XTextContentType? {
+	var toContentType: UITextContentType? {
 		switch self {
 		case .text:
 			nil
 		case .number:
 			nil
 		case .url:
-				.URL
+			.URL
 		case .email:
-				.emailAddress
+			.emailAddress
 		case .phoneNumber:
-				.telephoneNumber
+			.telephoneNumber
+		}
+	}
+
+	var toKeyboardType: UIKeyboardType? {
+		switch self {
+		case .text:
+			nil
+		case .number:
+			.decimalPad
+		case .url:
+			.URL
+		case .email:
+			.emailAddress
+		case .phoneNumber:
+			.phonePad
 		}
 	}
 
@@ -132,24 +145,6 @@ extension InputTypeAppEnum {
 			true
 		case .phoneNumber:
 			true
-		}
-	}
-}
-
-#if canImport(UIKit)
-extension InputTypeAppEnum {
-	var toKeyboardType: UIKeyboardType? {
-		switch self {
-		case .text:
-			nil
-		case .number:
-			.decimalPad
-		case .url:
-			.URL
-		case .email:
-			.emailAddress
-		case .phoneNumber:
-			.phonePad
 		}
 	}
 }

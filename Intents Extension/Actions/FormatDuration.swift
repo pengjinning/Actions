@@ -1,25 +1,26 @@
 import AppIntents
 import ExceptionCatcher
 
-struct FormatDurationIntent: AppIntent {
+struct FormatDuration: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "FormatDurationIntent"
+
 	static let title: LocalizedStringResource = "Format Duration"
 
 	static let description = IntentDescription(
-		"""
-		Formats the input duration to a human-friendly representation.
+"""
+Formats the input duration to a human-friendly representation.
 
-		For example, “9h 41m 30s” or “9:31:30”.
+For example, “9h 41m 30s” or “9:31:30”.
 
-		Styles:
-		- Positional: 9:31:30
-		- Abbreviated: 9h 41m 30s
-		- Brief: 9hr 41min 30sec
-		- Short: 9 hr, 41 min, 30 sec
-		- Full: 9 hours, 41 minutes, 30 seconds
-		- Spell Out: nine hours, forty-one minutes, thirty seconds
-		""",
-		categoryName: "Formatting",
-		resultValueName: "Formatted Duration"
+Styles:
+- Positional: 9:31:30
+- Abbreviated: 9h 41m 30s
+- Brief: 9hr 41min 30sec
+- Short: 9 hr, 41 min, 30 sec
+- Full: 9 hours, 41 minutes, 30 seconds
+- Spell Out: nine hours, forty-one minutes, thirty seconds
+""",
+		categoryName: "Formatting"
 	)
 
 	@Parameter(title: "Duration", description: "In seconds.", controlStyle: .field)
@@ -63,7 +64,7 @@ struct FormatDurationIntent: AppIntent {
 	}
 
 	@MainActor
-	func perform() async throws -> some IntentResult & ReturnsValue<String?> {
+	func perform() async throws -> some IntentResult & ReturnsValue<String> {
 		var allowedUnits = NSCalendar.Unit()
 
 		if showSeconds {
@@ -101,7 +102,7 @@ struct FormatDurationIntent: AppIntent {
 			formatter.string(from: duration)
 		}
 
-		return .result(value: result)
+		return .result(value: result ?? "") // TODO: Should be `String?`, but that's not supported. (iOS 16.0)
 	}
 }
 

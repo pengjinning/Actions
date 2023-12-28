@@ -1,19 +1,17 @@
 import AppIntents
 
-struct RandomTextIntent: AppIntent {
+struct GenerateRandomText: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "RandomTextIntent"
+
 	static let title: LocalizedStringResource = "Generate Random Text"
 
 	static let description = IntentDescription(
-		"""
-		Generates random text of the given length.
+"""
+Generates random text of the given length.
 
-		This can be useful as a placeholder, token, etc.
-		""",
-		categoryName: "Random",
-		searchKeywords: [
-			"placeholder"
-		],
-		resultValueName: "Random Text"
+This can be useful as a placeholder, token, etc.
+""",
+		categoryName: "Random"
 	)
 
 	// We set an upper bound to not exceed allowed memory usage.
@@ -35,7 +33,6 @@ struct RandomTextIntent: AppIntent {
 	@Parameter(
 		title: "Custom Characters",
 		inputOptions: String.IntentInputOptions(
-			keyboardType: .default,
 			capitalizationType: .none,
 			autocorrect: false,
 			smartQuotes: false,
@@ -48,7 +45,6 @@ struct RandomTextIntent: AppIntent {
 		title: "Seed",
 		description: "When specified, the returned text will always be the same if the seed is the same.",
 		inputOptions: String.IntentInputOptions(
-			keyboardType: .default,
 			capitalizationType: .none,
 			autocorrect: false,
 			smartQuotes: false,

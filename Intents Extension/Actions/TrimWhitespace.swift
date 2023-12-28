@@ -1,12 +1,13 @@
 import AppIntents
 
-struct TrimWhitespaceIntent: AppIntent {
+struct TrimWhitespace: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "TrimWhitespaceIntent"
+
 	static let title: LocalizedStringResource = "Trim Whitespace"
 
 	static let description = IntentDescription(
 		"Removes leading & trailing whitespace and newline characters from the input text.",
-		categoryName: "Text",
-		resultValueName: "Text with Trimmed Whitespace"
+		categoryName: "Text"
 	)
 
 	@Parameter(title: "Text")

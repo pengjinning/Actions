@@ -14,7 +14,6 @@ struct AppMain: App {
 
 	init() {
 		initSentry()
-		_ = SSApp.firstLaunchDate
 	}
 
 	var body: some Scene {
@@ -32,7 +31,7 @@ struct AppMain: App {
 					Link("Website", destination: "https://github.com/sindresorhus/Actions")
 					Divider()
 					Link("Rate App", destination: "macappstore://apps.apple.com/app/id1545870783?action=write-review")
-					// TODO: Doesn't work. (macOS 14.1)
+					// TODO: Doesn't work. (macOS 13.4)
 //					ShareLink("Share App", item: "https://apps.apple.com/app/id1545870783")
 					Link("More Apps by Me", destination: "macappstore://apps.apple.com/developer/id328077650")
 					Divider()

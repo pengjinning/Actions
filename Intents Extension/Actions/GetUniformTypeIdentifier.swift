@@ -1,16 +1,17 @@
 import AppIntents
 
-struct GetUniformTypeIdentifierIntent: AppIntent {
+struct GetUniformTypeIdentifier: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "GetUniformTypeIdentifierIntent"
+
 	static let title: LocalizedStringResource = "Get Uniform Type Identifier"
 
 	static let description = IntentDescription(
-		"""
-		Returns the Uniform Type Identifier (UTI) of the input file.
+"""
+Returns the Uniform Type Identifier (UTI) of the input file.
 
-		For example, a JPEG file would return “public.jpeg”.
-		""",
-		categoryName: "File",
-		resultValueName: "Uniform Type Identifier"
+For example, a JPEG file would return “public.jpeg”.
+""",
+		categoryName: "File"
 	)
 
 	@Parameter(title: "File", supportedTypeIdentifiers: ["public.item"])

@@ -1,16 +1,17 @@
 import AppIntents
 
-struct SortListIntent: AppIntent {
+struct SortList: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "SortListIntent"
+
 	static let title: LocalizedStringResource = "Sort List"
 
 	static let description = IntentDescription(
-		"""
-		Sorts the input list.
+"""
+Sorts the input list.
 
-		Note: If you get the error “The operation failed because Shortcuts couldn't convert from Text to NSString.”, just change the preview to show a list view instead. This is a bug in the Shortcuts app.
-		""",
-		categoryName: "List",
-		resultValueName: "Sorted List"
+Note: If you get the error “The operation failed because Shortcuts couldn't convert from Text to NSString.”, just change the preview to show a list view instead. This is a bug in the Shortcuts app.
+""",
+		categoryName: "List"
 	)
 
 	@Parameter(title: "List", description: "A list of text and/or numbers.")

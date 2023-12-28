@@ -1,16 +1,15 @@
 import AppIntents
 
 struct GetActionsVersion: AppIntent {
-	static let title: LocalizedStringResource = "Get Actions App Version"
+	static let title: LocalizedStringResource = "Get Actions Version"
 
 	static let description = IntentDescription(
-		"""
-		Returns the current version of the Actions app.
+"""
+Returns the current version of the Actions app.
 
-		The build number is an increasing integer and can be used to do version checks.
-		""",
-		categoryName: "Meta",
-		resultValueName: "Actions App Version"
+The build number is an increasing integer and can be used to do version checks.
+""",
+		categoryName: "Meta"
 	)
 
 	static var parameterSummary: some ParameterSummary {
@@ -23,7 +22,7 @@ struct GetActionsVersion: AppIntent {
 }
 
 struct ActionsVersionAppEntity: TransientAppEntity {
-	static let typeDisplayRepresentation: TypeDisplayRepresentation = "Actions App Version"
+	static let typeDisplayRepresentation: TypeDisplayRepresentation = "Actions Version"
 
 	@Property(title: "Version")
 	var version: String

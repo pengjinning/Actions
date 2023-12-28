@@ -15,7 +15,8 @@ struct SettingsScreen: View {
 				.frame(width: 400, height: 200)
 				.windowLevel(.modalPanel)
 				#else
-				.contentMargins(.top, 16)
+				// TODO: When targeting iOS 17.
+//				.contentMargins(.top, 8)
 				.toolbar {
 					ToolbarItem(placement: .confirmationAction) {
 						Button("Done") {

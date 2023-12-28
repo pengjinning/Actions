@@ -5,13 +5,12 @@ struct ConvertCoordinatesToLocation: AppIntent {
 	static let title: LocalizedStringResource = "Convert Coordinates to Location"
 
 	static let description = IntentDescription(
-		"""
-		Returns the location at the given latitude and longitude.
+"""
+Returns the location at the given latitude and longitude.
 
-		Tip: Use the built-in “Get Details of Locations” action to get more details from the location.
-		""",
-		categoryName: "Location",
-		resultValueName: "Location"
+Tip: Use the built-in “Get Details of Locations” action to get more details from the location.
+""",
+		categoryName: "Location"
 	)
 
 	@Parameter(title: "Latitude", controlStyle: .field)

@@ -1,6 +1,8 @@
 import AppIntents
 
-struct IsLowPowerModeIntent: AppIntent {
+struct IsLowPowerMode: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "IsLowPowerModeIntent"
+
 	static let title: LocalizedStringResource = "Is Low Power Mode On"
 
 	static let description = IntentDescription(

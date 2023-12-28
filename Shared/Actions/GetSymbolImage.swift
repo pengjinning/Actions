@@ -1,19 +1,19 @@
 import AppIntents
-import SwiftUI
 
-struct SymbolImageIntent: AppIntent {
+struct GetSymbolImage: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "SymbolImageIntent"
+
 	static let title: LocalizedStringResource = "Get SF Symbol Image"
 
 	static let description = IntentDescription(
-		"""
-		Returns a SF Symbols symbol as an image.
+"""
+Returns a SF Symbols symbol as an image.
 
-		For example, “checkmark.circle.fill”.
+For example, “checkmark.circle.fill”.
 
-		Use the SF Symbols app to find the symbol you want.
-		""",
-		categoryName: "Image",
-		resultValueName: "SF Symbol Image"
+Use the SF Symbols app to find the symbol you want.
+""",
+		categoryName: "Image"
 	)
 
 	@Parameter(
@@ -67,22 +67,22 @@ struct SymbolImageIntent: AppIntent {
 		case .monochrome:
 			if
 				let hexString = color,
-				let color = Color.Resolved(hexString: hexString)?.toColor.toXColor
+				let color = XColor(hexString: hexString)
 			{
 				configuration = configuration.applying(XImage.SymbolConfiguration(paletteColors: [color]))
 			}
 		case .hierarchical:
 			if
 				let hexString = color,
-				let color = Color.Resolved(hexString: hexString)?.toColor.toXColor
+				let color = XColor(hexString: hexString)
 			{
 				configuration = configuration.applying(XImage.SymbolConfiguration(hierarchicalColor: color))
 			}
 		case .palette:
-			if let colors = (paletteColors.compactMap { Color.Resolved(hexString: $0)?.toColor.toXColor }).nilIfEmpty {
+			if let colors = (paletteColors.compactMap { XColor(hexString: $0) }).nilIfEmpty {
 				configuration = configuration.applying(XImage.SymbolConfiguration(paletteColors: colors))
 			}
-		case .multicolor: // TODO: Does not work on macOS. (macOS 14.1) Check if it's fixed on macOS 15.
+		case .multicolor: // TODO: Does not work on macOS. (macOS 12.2) Check if it's fixed on macOS 13.
 			configuration = configuration.applying(XImage.SymbolConfiguration.preferringMulticolor())
 		}
 

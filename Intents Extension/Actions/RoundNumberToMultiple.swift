@@ -1,16 +1,17 @@
 import AppIntents
 
-struct RoundNumberToMultipleIntent: AppIntent {
+struct RoundNumberToMultiple: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "RoundNumberToMultipleIntent"
+
 	static let title: LocalizedStringResource = "Round Number to Multiple"
 
 	static let description = IntentDescription(
-		"""
-		Rounds the input number to the nearest multiple of the second number.
+"""
+Rounds the input number to the nearest multiple of the second number.
 
-		For example, if the number represents minutes and you want to round it to the nearest half-hour, you could use 30 as the multiple.
-		""",
-		categoryName: "Number",
-		resultValueName: "Rounded Number"
+For example, if the number represents minutes and you want to round it to the nearest half-hour, you could use 30 as the multiple.
+""",
+		categoryName: "Number"
 	)
 
 	@Parameter(title: "Number")

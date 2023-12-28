@@ -1,12 +1,13 @@
 import AppIntents
 
-struct RemoveDuplicateLinesIntent: AppIntent {
+struct RemoveDuplicateLines: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "RemoveDuplicateLinesIntent"
+
 	static let title: LocalizedStringResource = "Remove Duplicate Lines"
 
 	static let description = IntentDescription(
 		"Removes duplicate lines from the input text. Empty or whitespace-only lines are not considered duplicates.",
-		categoryName: "Text",
-		resultValueName: "Text with Deduplicated Lines"
+		categoryName: "Text"
 	)
 
 	@Parameter(title: "Text")

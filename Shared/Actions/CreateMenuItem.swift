@@ -7,21 +7,19 @@ struct CreateMenuItem: AppIntent {
 	static let title: LocalizedStringResource = "Create Menu Item"
 
 	static let description = IntentDescription(
-		"""
-		Create a menu item with a title, subtitle, and icon.
+"""
+Create a menu item with a title, subtitle, and icon.
 
-		You can later use one or more of these menu items in a “Choose from List” action.
+You can later use one or more of these menu items in a “Choose from List” action.
 
-		Add an “Add to Variable” action below this one to populate a list and then use that variable in the “Choose From List” action.
-		""",
+Add an "Add to Variable" action below this one to populate a list and then use that variable in the “Choose From List” action.
+""",
 		categoryName: "Miscellaneous",
 		searchKeywords: [
 			"choose",
 			"rich",
-			"list",
-			"menuitem"
-		],
-		resultValueName: "Menu Item"
+			"list"
+		]
 	)
 
 	static var parameterSummary: some ParameterSummary {
@@ -71,41 +69,29 @@ struct CreateMenuItem: AppIntent {
 		}
 	}
 
-	@Parameter(
-		title: "Title",
-		inputOptions: .init(keyboardType: .default)
-	)
+	@Parameter(title: "Title")
 	var menuTitle: String
 
 	@Parameter(
 		title: "SF Symbol",
 		description: "Find symbol names here: https://developer.apple.com/sf-symbols/",
 		inputOptions: .init(
+			keyboardType: .asciiCapable,
 			capitalizationType: .none,
 			autocorrect: false,
 			smartQuotes: false,
 			smartDashes: false
 		)
 	)
-	var sfSymbolName: String?
+	var sfSymbolName: String
 
 	@Parameter(
 		title: "Emoji",
-		description: "Tap the emoji button on your keyboard and select one emoji.",
-		inputOptions: .init(
-			keyboardType: .default,
-			capitalizationType: .none,
-			autocorrect: false,
-			smartQuotes: false,
-			smartDashes: false
-		)
+		description: "Tap the emoji button on your keyboard and select one emoji."
 	)
 	var emoji: String?
 
-	@Parameter(
-		title: "Subtitle",
-		inputOptions: .init(keyboardType: .default)
-	)
+	@Parameter(title: "Subtitle")
 	var subtitle: String?
 
 	@Parameter(title: "Icon Type", default: .sfSymbol)
@@ -142,16 +128,11 @@ struct CreateMenuItem: AppIntent {
 	)
 	var data: String?
 
-	@MainActor
 	func perform() async throws -> some IntentResult & ReturnsValue<MenuItem> {
-		// Tries to work around some crash: https://github.com/sindresorhus/Actions/issues/180
-		try? await Task.sleep(for: .seconds(0.1))
-
 		let menuItem = MenuItem(
 			title: menuTitle,
 			subtitle: subtitle,
-			icon: await makeIcon(),
-			data: data
+			icon: await makeIcon()
 		)
 
 		return .result(value: menuItem)
@@ -161,7 +142,7 @@ struct CreateMenuItem: AppIntent {
 		switch iconType {
 		case .sfSymbol:
 			await IconContainerView(
-				sfSymbol: sfSymbolName ?? "",
+				sfSymbol: sfSymbolName,
 				foregroundColor: foreground.color(),
 				backgroundColor: background.color(isBackground: true),
 				backgroundShape: backgroundShape
@@ -190,19 +171,14 @@ struct MenuItem: TransientAppEntity {
 	@Property(title: "Icon")
 	var icon: IntentFile?
 
-	@Property(title: "Data")
-	var data: String?
-
 	init(
 		title: String,
 		subtitle: String? = nil,
-		icon: Data? = nil,
-		data: String? = nil
+		icon: Data? = nil
 	) {
 		self.icon = icon.flatMap { .init(data: $0, filename: "icon.png", type: .png) }
 		self.title = title
 		self.subtitle = subtitle
-		self.data = data
 	}
 
 	init() {

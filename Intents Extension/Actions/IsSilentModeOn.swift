@@ -1,15 +1,17 @@
 import AppIntents
 
 @available(macOS, unavailable)
-struct IsSilentModeOnIntent: AppIntent {
+struct IsSilentModeOn: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "IsSilentModeOnIntent"
+
 	static let title: LocalizedStringResource = "Is Silent Mode On (iOS-only)"
 
 	static let description = IntentDescription(
-		"""
-		Returns whether the silent switch (mute) is enabled on the device.
+"""
+Returns whether the silent switch (mute) is enabled on the device.
 
-		Known limitation: This will return true even if silent mode is not enabled if it's run while Voice Memos is recording.
-		""",
+Known limitation: This will return true even if silent mode is not enabled if it's run while Voice Memos is recording.
+""",
 		categoryName: "Device"
 	)
 

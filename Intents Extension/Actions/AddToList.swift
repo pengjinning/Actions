@@ -1,24 +1,25 @@
 import AppIntents
 
-struct AddToListIntent: AppIntent {
+struct AddToList: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "AddToListIntent"
+
 	static let title: LocalizedStringResource = "Add to List"
 
 	static let description = IntentDescription(
-		"""
-		Adds the input item to the given list.
+"""
+Adds the input item to the given list.
 
-		Even though the description says this action accepts input of type Files, it accepts any type.
+Even though the description says this action accepts input of type Files, it accepts any type.
 
-		Note: If you get the error “The operation failed because Shortcuts couldn't convert from Text to NSString.”, just change the preview to show a list view instead. This is a bug in the Shortcuts app.
-		""",
+Note: If you get the error “The operation failed because Shortcuts couldn't convert from Text to NSString.”, just change the preview to show a list view instead. This is a bug in the Shortcuts app.
+""",
 		categoryName: "List",
 		searchKeywords: [
 			"append",
 			"prepend",
 			"push",
 			"shift"
-		],
-		resultValueName: "Modified List"
+		]
 	)
 
 	@Parameter(

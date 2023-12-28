@@ -1,25 +1,24 @@
 import AppIntents
 import Speech
 
-struct TranscribeAudioIntent: AppIntent {
+struct TranscribeAudio: AppIntent, CustomIntentMigratedAppIntent {
+	static let intentClassName = "TranscribeAudioIntent"
+
 	static let title: LocalizedStringResource = "Transcribe Audio"
 
 	static let description = IntentDescription(
-		"""
-		Converts the speech in the input audio file to text.
+"""
+Converts the speech in the input audio file to text.
 
-		Note: Prefer the built-in “Transcribe Audio” action.
+Note: On iOS, the transcription only works if the audio takes less than 30 seconds to process. This usually means about 1 minute of transcription. This is because third-party actions only get 30 seconds to execute.
 
-		Note: On iOS, the transcription only works if the audio takes less than 30 seconds to process. This usually means about 1 minute of transcription. This is because third-party actions only get 30 seconds to execute.
+Tip: Check out my app Aiko on the App Store. It has higher quality transcription, unlimited duration, and supports 100 languages.
 
-		Tip: Check out my app Aiko on the App Store. It has higher quality transcription, unlimited duration, and supports 100 languages.
+See the built-in "Dictate Text" action if you need to transcribe in real-time.
 
-		See the built-in “Dictate Text” action if you need to transcribe in real-time.
-
-		Important: If you have permission issues even after granting access, try removing the action from your shortcut, force quit Shortcuts and Actions, and then add the action again.
-		""",
-		categoryName: "Audio",
-		resultValueName: "Transcription"
+Important: If you have permission issues even after granting access, try removing the action from your shortcut, force quit Shortcuts and Actions, and then add the action again.
+""",
+		categoryName: "Audio"
 	)
 
 	@Parameter(title: "Audio File", supportedTypeIdentifiers: ["public.audio"])
@@ -38,7 +37,7 @@ struct TranscribeAudioIntent: AppIntent {
 		}
 	}
 
-	func perform() async throws -> some IntentResult & ReturnsValue<String?> {
+	func perform() async throws -> some IntentResult & ReturnsValue<String> {
 		guard await SFSpeechRecognizer.requestAuthorization() == .authorized else {
 			let recoverySuggestion = OS.current == .macOS
 				? "You can grant access in “System Settings › Privacy & Security › Speech Recognition”."
@@ -68,7 +67,7 @@ struct TranscribeAudioIntent: AppIntent {
 		request.taskHint = .dictation
 		request.requiresOnDeviceRecognition = offline
 
-		let result: String? = try await {
+		let result = try await {
 			do {
 				return try await recognizer.recognitionTask(with: request).bestTranscription.formattedString
 			} catch {
@@ -76,7 +75,7 @@ struct TranscribeAudioIntent: AppIntent {
 
 				// "No speech detected" error
 				if nsError.domain == "kAFAssistantErrorDomain", nsError.code == 1110 {
-					return nil
+					return ""
 				}
 
 				throw error
